@@ -35,5 +35,6 @@ export default {
       console.log(response);
     }
   }
+
 };
 </script>

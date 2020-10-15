@@ -13,10 +13,15 @@ export default new Vuex.Store({
   },
   mutations: {
     addFavoriteGif(state, payload) {
-      console.log(state);
-      console.log(payload);
+      console.log('payload',payload);
 
       state.favoritedGifs.push(payload);
+      console.log(state.favoritedGifs);
+    },
+
+    removeFavoriteGif(state, payload) {
+      let index = state.favoritedGifs.indexOf(payload)
+      state.favoritedGifs.splice(index, 1);
       console.log(state.favoritedGifs);
     },
   },

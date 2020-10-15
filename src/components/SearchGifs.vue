@@ -5,7 +5,7 @@
         <v-text-field
           label="Pesquise por Gifs aqui"
           v-model="queroGif"
-          hint="Por exemplo, trending ou gifs de gatinho 😻"
+          hint="Por exemplo, trending ou gifs de gatinho 🐱"
         ></v-text-field>
       </v-col>
       <v-col cols="3" class="white pt-8 p">

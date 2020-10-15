@@ -1,6 +1,13 @@
 <template>
   <v-container class="home">
-    <h1>Giphy</h1>
+    <v-col cols="9">
+        <h1>Giphy!</h1>
+      </v-col>
+       <v-col cols="3">
+        <v-btn depressed class="primary" color="white" to="/favoritos">Favoritos</v-btn>
+        <v-btn depressed class="primary ml-5" color="white" to="/trending">Trending</v-btn>
+
+      </v-col>
     <SearchGifs @Pesquisou="searchGifs" :resultsFor="resultsFor" />
     <v-row v-if="showTrendingHeader">
       <v-col cols="9">
@@ -10,8 +17,9 @@
         <v-btn depressed class="white ml-6 mt-3" to="/trending">Ver tudo</v-btn>
       </v-col>
     </v-row>
+
     <ShowGifs
-      v-if="Gifs.hasOwnProperty('data')"
+      
       :Gifs="Gifs.data"
       :showBtnLoadMore="showBtnLoadMore"
     />

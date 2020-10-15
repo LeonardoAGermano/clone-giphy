@@ -4,13 +4,14 @@
     <h1>Favoritos</h1>
     <v-container>
       <v-row>
-        <v-col><p>Seus gifs favoritos estão aqui!</p></v-col>
+        <v-col><p id="instruction1">Seus gifs favoritos estão aqui!</p></v-col>
         <v-col
-          ><p>Basta desmarcar para que o gif saia dos seus favoritos.</p></v-col
+          ><p id="instruction2">Basta desmarcar para que o gif saia dos seus favoritos.</p></v-col
         >
       </v-row>
     </v-container>
-    <ShowGifs :showBtnLoadMore="true" />
+    <ShowGifs :showBtnLoadMore="true" 
+    :Gifs="favoriteGifs"/>
   </div>
 </template>
 
@@ -23,9 +24,9 @@ export default {
     ShowGifs
   },
 
-  computed: {
-    gifsFavoritos() {
-      return this.store.getters.favoritedGifs;
+  computed:{
+    favoriteGifs(){
+     return this.$store.getters.favoritedGifs
     }
   },
 
@@ -34,3 +35,14 @@ export default {
   })
 };
 </script>
+
+<style l>
+#instruction1{
+  color: primary;
+}
+
+#instruction2{
+  color: gray;
+}
+
+</style>
