@@ -14,11 +14,16 @@
         </v-btn>
       </v-col>
     </v-row>
+    <v-row v-if="resultsFor">
+      <span style="grey">Resultados para {{ queroGif }}</span>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 export default {
+  props: ["resultsFor"],
+
   data: () => ({
     queroGif: ""
   }),

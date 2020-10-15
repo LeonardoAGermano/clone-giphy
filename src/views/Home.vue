@@ -1,7 +1,7 @@
 <template>
   <v-container class="home">
     <h1>Giphy</h1>
-    <SearchGifs @Pesquisou="searchGifs" />
+    <SearchGifs @Pesquisou="searchGifs" :resultsFor="resultsFor" />
     <v-row v-if="showTrendingHeader">
       <v-col cols="9">
         <h1>Trending</h1>
@@ -33,7 +33,8 @@ export default {
   data: () => ({
     Gifs: {},
     showTrendingHeader: true,
-    showBtnLoadMore: false
+    showBtnLoadMore: false,
+    resultsFor: false
   }),
 
   created() {
@@ -49,6 +50,7 @@ export default {
       console.log(response);
       this.showTrendingHeader = false;
       this.showBtnLoadMore = true;
+      this.resultsFor = true;
     },
 
     async getTrends() {

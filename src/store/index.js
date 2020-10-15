@@ -5,8 +5,21 @@ import axios from "axios";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: { favoritedGifs: [] },
+  getters: {
+    favoritedGifs(state) {
+      return state.favoritedGifs;
+    },
+  },
+  mutations: {
+    addFavoriteGif(state, payload) {
+      console.log(state);
+      console.log(payload);
+
+      state.favoritedGifs.push(payload);
+      console.log(state.favoritedGifs);
+    },
+  },
   actions: {
     async getTrends(context, payload) {
       console.log(context);
@@ -23,6 +36,7 @@ export default new Vuex.Store({
         console.log(error);
       }
     },
+
     async getGifs(context, payload) {
       console.log(context);
       console.log(payload);

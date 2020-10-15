@@ -1,6 +1,8 @@
 <template>
   <v-container>
-    <span>hahaha</span>
+    <v-model v-if="Gifs == 0">
+      <h1 id="empty">Poxa, não encontramos gifs com esses termos :/</h1>
+    </v-model>
     <v-row>
       <v-col
         cols="3"
@@ -10,6 +12,9 @@
       >
         <v-card>
           <v-card-title>{{ gifAtual.title }}</v-card-title>
+          <v-btn icon color="grey" @click="addFavoriteGif">
+            <v-icon>mdi-heart</v-icon>
+          </v-btn>
 
           <v-img
             :src="gifAtual.source"
@@ -22,7 +27,6 @@
     <v-row v-if="showBtnLoadMore">
       <v-col><v-btn @click="moreGifs">Carregar mais</v-btn></v-col>
     </v-row>
-    <span>{{ showBtnLoadMore }}</span>
   </v-container>
 </template>
 
@@ -41,3 +45,15 @@ export default {
   }
 };
 </script>
+
+<style>
+#empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em;
+  font-size: 72;
+  font-weight: 800;
+  color: grey;
+}
+</style>
